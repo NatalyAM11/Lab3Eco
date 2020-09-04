@@ -6,10 +6,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class NameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,14 +20,14 @@ public class NameActivity extends AppCompatActivity implements View.OnClickListe
     private ConstraintLayout fondo2;
 
     private String username;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        String color= getIntent().getExtras().getString("color");
+       String color= getIntent().getExtras().getString("color");
 
 
         bConfgMain2= findViewById(R.id.bConfgMain2);
@@ -36,35 +36,20 @@ public class NameActivity extends AppCompatActivity implements View.OnClickListe
         fondo2= findViewById(R.id.fondo2);
 
 
-        //intento hacer lo del cambio de pantalla
+        //intento hacer lo del cambio de color de la pantalla
 
-        if(color=="azul"){
+       if(color.equals("azul")){
             fondo2.setBackgroundColor(Color.rgb(51,134,255));
         }
-        if(color=="blanco"){
+        if(color.equals("blanco")){
             fondo2.setBackgroundColor(Color.rgb(255,255,255));
         }
-        if(color=="negro"){
+        if(color.equals("negro")){
             fondo2.setBackgroundColor(Color.rgb(33 ,32,32));
         }
 
         bConfgMain2.setOnClickListener(this);
         bContinuar.setOnClickListener(this);
-
-    /*      bConfgMain2.setOnClickListener(
-                (v)->{
-                    Intent i= new Intent();
-                    finish();
-                }
-        );
-
-        bContinuar.setOnClickListener(
-                (v)->{
-                    Intent a = new Intent(this, NotaActivity.class);
-                    startActivity(a);
-
-                }
-        );*/
 
 
 
@@ -74,20 +59,28 @@ public class NameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        username= userName.getText().toString();
+        String color= getIntent().getExtras().getString("color");
 
         switch (view.getId()){
 
             case R.id.bConfgMain2:
-                finish();
+                Intent i = new Intent(this, MainActivity.class);
+                i.putExtra("color", color);
+                startActivity(i);
                 break;
 
             case R.id.bContinuar:
+                //get username
+                username= userName.getText().toString();
+
                 Intent a = new Intent(this, NotaActivity.class);
-                startActivity(a);
+                a.putExtra("color", color);
                 a.putExtra("username", username);
+                startActivity(a);
                 break;
 
         }
+
     }
+
 }
