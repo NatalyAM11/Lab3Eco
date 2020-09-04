@@ -6,9 +6,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class NotaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -83,7 +85,12 @@ public class NotaActivity extends AppCompatActivity implements View.OnClickListe
         parcial2 = parcial2Nota.getText().toString();
 
 
-        //notas numero
+        if(proyecto1.trim().isEmpty() || proyecto2.trim().isEmpty() || quiz.trim().isEmpty() || parcial1.trim().isEmpty() || parcial2.trim().isEmpty()){
+            Toast.makeText(this, " Uno de los campos no fue llenado", Toast.LENGTH_LONG).show();
+            return;
+            }
+
+        //notas double
         proyecto1n = Double.parseDouble(proyecto1);
         proyecto2n = Double.parseDouble(proyecto2);
         quizn = Double.parseDouble(quiz);
