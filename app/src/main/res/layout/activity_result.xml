@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fondo4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
@@ -22,9 +23,8 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:text="Resultado"
-            android:textColor="#2E2626"
+            android:textColor="#5C5757"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,9 +34,9 @@
             android:id="@+id/nota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="77dp"
+            android:layout_marginTop="60dp"
             android:text="NOTA"
-            android:textColor="#2E2626"
+            android:textColor="#5C5757"
             android:textSize="70sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="61dp"
             android:text="Hola, tu nota es de "
+            android:textColor="#5C5757"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +59,14 @@
             android:id="@+id/bCalcularAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="136dp"
+            android:layout_marginTop="80dp"
             android:text="Calcular otra vez"
+            android:textColor="#5C5757"
             android:textIsSelectable="true"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nota" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
