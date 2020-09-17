@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class NameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -64,14 +65,24 @@ public class NameActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.bConfgMain2:
+
+                color= getSharedPreferences("na", MODE_PRIVATE).getString("color", "NO_USER");
+
                 Intent i = new Intent(this, MainActivity.class);
                 i.putExtra("color", color);
+                setResult(RESULT_OK, i);
                 startActivity(i);
                 break;
 
             case R.id.bContinuar:
+
                 //get username
                 username= userName.getText().toString();
+
+                if(username.trim().isEmpty()){
+                    Toast.makeText(this, " Uno de los campos no fue llenado", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 Intent a = new Intent(this, NotaActivity.class);
                 a.putExtra("color", color);

@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         SharedPreferences preferences=getSharedPreferences("locker",MODE_PRIVATE);
         preferences.edit().putString("color",color).apply();
-        
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
